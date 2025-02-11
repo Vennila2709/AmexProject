@@ -1,0 +1,77 @@
+package com.amex.base;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+
+public class BaseClass {
+	
+	public static WebDriver driver;
+	
+   public BaseClass(){
+	   CommandLine command = new CommandLine("your-command");
+
+       DefaultExecutor executor = new DefaultExecutor();
+       
+       // Optional: Set output/input stream handler if needed
+       ExecuteStreamHandler streamHandler = new PumpStreamHandler(System.out, System.err);
+       executor.setStreamHandler(streamHandler);
+
+       // Set a timeout for the process
+       executor.setTimeout(10000); // Timeout in milliseconds
+
+       try {
+           int exitValue = executor.execute(command);
+           System.out.println("Process finished with exit value: " + exitValue);
+       } catch (ExecuteException e) {
+           System.err.println("Execution failed: " + e.getMessage());
+       } catch (IOException e) {
+           System.err.println("IOException: " + e.getMessage());
+       }
+   }
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+    }
+
+    public static void launchUrl(String url) {
+    	try {
+        	driver.get(url);
+    	}catch(Exception e) {
+    		e.getMessage();
+    	}
+    }
+    public static void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+    
+    public static boolean isDisplayed(WebElement element) {
+    	boolean flag=false;
+    	try {
+        	flag=element.isDisplayed();	
+    	}catch(Exception e) {
+    		e.getMessage();
+    	}
+    	return flag;	
+    }
+    
+    public static void click(WebElement element) {
+    	try {
+        	element.click();	
+    	}catch(Exception e) {
+    		e.getMessage();
+    	}    	
+    }
+    
+    public static void sendKey(WebElement element, String text) {
+    	try {
+        	element.sendKeys(text);	
+    	}catch(Exception e) {
+    		e.getMessage();
+    	}    	
+    }
+}

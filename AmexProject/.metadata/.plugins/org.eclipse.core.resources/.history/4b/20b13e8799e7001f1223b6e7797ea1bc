@@ -1,0 +1,47 @@
+package com.amex.tests;
+
+import com.amex.base.BaseClass;
+import com.amex.pages.*;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import org.openqa.selenium.WebDriver;
+
+public class AmexAutomationTest {
+	
+	public static void main(String[] args) {
+		ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless"); // Run Chrome in headless mode
+        options.addArguments("--disable-gpu"); // Disable GPU acceleration (useful on headless machines)
+
+		//System.setProperty("webdriver.chrome.driver", "C:/Users/vijay/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
+ 	   System.setProperty("webdriver.chrome.driver", "C:\\Users\\vijay\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+         driver = new ChromeDriver();
+         driver.manage().window().maximize();
+      driver.get("https://www.americanexpress.com/fr-fr/?inav=NavLogo");
+      driver.close();
+	}
+	//public HomePage homePage;
+	
+	/*@BeforeClass
+	public void beforeClass() {
+		//homePage=new HomePage(driver);
+	}
+
+    @Test
+    public void testAmexFlow() {
+    	 System.setProperty("webdriver.chrome.driver", "C:\\Users\\vijay\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+        ChromeDriver driver = new ChromeDriver();
+         driver.manage().window().maximize();
+      driver.get("https://www.americanexpress.com/fr-fr/?inav=NavLogo");
+       homePage.homePageIsDispalyed();
+  }
+    
+    @BeforeClass
+	public void afterClass() {
+		
+	}*/
+}

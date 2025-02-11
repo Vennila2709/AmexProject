@@ -1,0 +1,14 @@
+package com.amex.pages;
+
+import com.amex.base.BaseClass;
+
+/**
+ * Hello world!
+ *
+ */
+public class HomePage extends BaseClass{
+	
+    public HomePage() {
+    	
+    }
+}

@@ -1,0 +1,58 @@
+package com.amex.base;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+
+public class BaseClass {
+	
+	public static WebDriver driver;
+	
+   public BaseClass(){
+        //WebDriverManager.chromedriver().setup();
+	   System.setProperty("webdriver.chrome.driver", "c");
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+    }
+
+    public static void launchUrl(String url) {
+    	try {
+        	driver.get(url);
+    	}catch(Exception e) {
+    		e.getMessage();
+    	}
+    }
+    public static void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+    
+    public static boolean isDisplayed(WebElement element) {
+    	boolean flag=false;
+    	try {
+        	flag=element.isDisplayed();	
+    	}catch(Exception e) {
+    		e.getMessage();
+    	}
+    	return flag;	
+    }
+    
+    public static void click(WebElement element) {
+    	try {
+        	element.click();	
+    	}catch(Exception e) {
+    		e.getMessage();
+    	}    	
+    }
+    
+    public static void sendKey(WebElement element, String text) {
+    	try {
+        	element.sendKeys(text);	
+    	}catch(Exception e) {
+    		e.getMessage();
+    	}    	
+    }
+}

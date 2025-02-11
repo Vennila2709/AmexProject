@@ -1,0 +1,29 @@
+package com.amex.tests;
+
+import com.amex.base.BaseClass;
+import com.amex.pages.*;
+import org.testng.annotations.Test;
+
+public class AmexAutomationTest extends BaseClass {
+
+    @Test
+    public void testAmexFlow() {
+        driver.get("https://www.americanexpress.com/fr-fr/?inav=NavLogo");
+
+        // Step 1: Go to homepage and click "Cartes American Express"
+        HomePage homePage = new HomePage(driver);
+        CartesPage cartesPage = homePage.clickCartesLink();
+
+        // Step 2: Click "En savoir plus" for Gold Card
+        GoldCardPage goldCardPage = cartesPage.clickGoldCardLink();
+
+        // Step 3: Click "Demandez Votre Carte"
+        UserDetailsPage userDetailsPage = goldCardPage.clickApplyButton();
+
+        // Step 4: Fill in user details and click "Sauvegarder et Continuer"
+        userDetailsPage.fillUserDetails("John", "Doe", "johndoe@example.com");
+        userDetailsPage.clickSaveAndContinue();
+
+        // Add more validation steps or assertions as needed
+    }
+}

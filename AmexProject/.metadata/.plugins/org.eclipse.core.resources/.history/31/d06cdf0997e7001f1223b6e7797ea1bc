@@ -1,0 +1,38 @@
+package com.amex.tests;
+
+import com.amex.base.BaseClass;
+import com.amex.pages.*;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class AmexAutomationTest {
+	
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\vijay\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+        ChromeDriver driver = new ChromeDriver();
+         driver.manage().window().maximize();
+      driver.get("https://www.americanexpress.com/fr-fr/?inav=NavLogo");
+	}
+	//public HomePage homePage;
+	
+	/*@BeforeClass
+	public void beforeClass() {
+		//homePage=new HomePage(driver);
+	}
+
+    @Test
+    public void testAmexFlow() {
+    	 System.setProperty("webdriver.chrome.driver", "C:\\Users\\vijay\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+        ChromeDriver driver = new ChromeDriver();
+         driver.manage().window().maximize();
+      driver.get("https://www.americanexpress.com/fr-fr/?inav=NavLogo");
+       homePage.homePageIsDispalyed();
+  }
+    
+    @BeforeClass
+	public void afterClass() {
+		
+	}*/
+}
