@@ -44,6 +44,7 @@ public class UserDetailsPage extends BaseClass{
 	public void clickContinueButton() {
 		if(isDisplayed(continueButton)) {
 			clickByJs(continueButton);
+			waitFor(2000);
 		}
 		
 	}
